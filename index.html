@@ -1,12 +1,42 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>PALAMBING!</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-      <h1 class="title">PALAMBING! </h1>
-      <p id="currentTime"></p>
-      <script src="script.js"></script>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lambing Alert!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #lambing-text {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        #current-time {
+            font-size: 24px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="lambing-text">THIS PERSON NEED LAMBING, MIKAELA ANO NA??? ANONG ORAS NA OH</h1>
+    <p id="current-time"></p>
+
+    <script>
+        const currentTimeElement = document.getElementById('current-time');
+
+        function updateTime() {
+            const philippinesTimezone = 'Asia/Manila';
+            const currentTime = new Date().toLocaleTimeString('en-US', { timeZone: philippinesTimezone });
+            currentTimeElement.textContent = `Current time in the Philippines: ${currentTime}`;
+        }
+
+        updateTime();
+        setInterval(updateTime, 1000); // update every 1 second
+    </script>
+</body>
 </html>
